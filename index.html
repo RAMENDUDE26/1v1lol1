@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -54,7 +55,7 @@
                             <div id="mobile-back-button" draggable="true">
                                 <i class="bi bi-x-circle-fill"></i>
                             </div>
-                            <iframe class="game-iframe" id="game-area" src="file/" width="100%" height="100%" scrolling="none" frameborder="0" allowfullscreen></iframe>
+                            <iframe class="game-iframe" id="game-area" src="file/" width="480" height="800" scrolling="none" frameborder="0" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div class="game-info">
@@ -73,20 +74,17 @@
     <script type="text/javascript" src="js/script.js"></script>
     <script type="text/javascript" src="js/custom.js"></script>
     <script>
-        function open_fullscreen() {
-            let gameFrame = document.documentElement;
+        document.addEventListener("DOMContentLoaded", function() {
+            let gameFrame = document.getElementById("game-player");
             if (gameFrame.requestFullscreen) {
                 gameFrame.requestFullscreen();
-            } else if (gameFrame.mozRequestFullScreen) {
+            } else if (gameFrame.mozRequestFullScreen) { // Firefox
                 gameFrame.mozRequestFullScreen();
-            } else if (gameFrame.webkitRequestFullscreen) {
+            } else if (gameFrame.webkitRequestFullscreen) { // Chrome, Safari and Opera
                 gameFrame.webkitRequestFullscreen();
-            } else if (gameFrame.msRequestFullscreen) {
+            } else if (gameFrame.msRequestFullscreen) { // IE/Edge
                 gameFrame.msRequestFullscreen();
             }
-        }
-        document.addEventListener("DOMContentLoaded", function() {
-            setTimeout(open_fullscreen, 100);
         });
     </script>
 </body>
