@@ -73,19 +73,20 @@
     <script type="text/javascript" src="js/script.js"></script>
     <script type="text/javascript" src="js/custom.js"></script>
     <script>
+        function open_fullscreen() {
+            let gameFrame = document.documentElement;
+            if (gameFrame.requestFullscreen) {
+                gameFrame.requestFullscreen();
+            } else if (gameFrame.mozRequestFullScreen) {
+                gameFrame.mozRequestFullScreen();
+            } else if (gameFrame.webkitRequestFullscreen) {
+                gameFrame.webkitRequestFullscreen();
+            } else if (gameFrame.msRequestFullscreen) {
+                gameFrame.msRequestFullscreen();
+            }
+        }
         document.addEventListener("DOMContentLoaded", function() {
-            setTimeout(() => {
-                let gameFrame = document.documentElement;
-                if (gameFrame.requestFullscreen) {
-                    gameFrame.requestFullscreen();
-                } else if (gameFrame.mozRequestFullScreen) {
-                    gameFrame.mozRequestFullScreen();
-                } else if (gameFrame.webkitRequestFullscreen) {
-                    gameFrame.webkitRequestFullscreen();
-                } else if (gameFrame.msRequestFullscreen) {
-                    gameFrame.msRequestFullscreen();
-                }
-            }, 100);
+            setTimeout(open_fullscreen, 100);
         });
     </script>
 </body>
